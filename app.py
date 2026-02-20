@@ -1,4 +1,19 @@
-import os
+import ctypes, sys, os
+
+def is_admin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    except:
+        return False
+
+if not is_admin():
+    # Перезапуск скрипта с правами администратора
+    ctypes.windll.shell32.ShellExecuteW(
+        None, "runas", sys.executable, " ".join([__file__] + sys.argv[1:]), None, 1
+    )
+    sys.exit(0)
+    
+# import os
 import time
 from flask import Flask, render_template, request, jsonify, send_file
 import re

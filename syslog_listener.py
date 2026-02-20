@@ -47,7 +47,7 @@ def run_listener(log_file=DEFAULT_LOG_FILE, host=DEFAULT_HOST, port=DEFAULT_PORT
             data, addr = sock.recvfrom(BUFFER_SIZE)
             if data:
                 message = data.decode('utf-8', errors='ignore').strip()
-                timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
+                timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')
                 log_entry = f"{timestamp} [syslog] from {addr[0]}:{addr[1]} - {message}\n"
                 
                 with open(log_file, 'a', encoding='utf-8') as f:

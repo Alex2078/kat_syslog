@@ -1,0 +1,36 @@
+# .dockerignore
+# Исключаем из сборки ненужные файлы
+
+# Git и IDE
+.git
+.gitignore
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Логи и данные (не должны быть в образе)
+syslog.log
+*.log
+
+# Тесты и документация (если не нужны в runtime)
+tests/
+*.md
+!.dockerignore
+!README.md
+
+# Docker-файлы (не копируем сами себя)
+Dockerfile
+docker-compose*.yml

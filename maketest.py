@@ -7,7 +7,7 @@ lines = [
     "2024-01-01 10:03:00 [WARN] Предупреждение с IP 192.168.0.100\n",
 ]
 
-with open('syslog_mixed.txt', 'wb') as f:
+with open('syslog.log', 'wb') as f:
     for i, line in enumerate(lines):
         encoding = encodings[i % len(encodings)]
         f.write(line.encode(encoding))
